@@ -21,7 +21,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 JLex is a Lexical Analyzer Generator for Java.
 
 %description -l pl
-JLex to geenrator analizatorów leksykalnych dla Javy.
+JLex to generator analizatorów leksykalnych dla Javy.
 
 %prep
 %setup -c -T

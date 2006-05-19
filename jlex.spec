@@ -10,7 +10,7 @@ Source0:	http://www.cs.princeton.edu/~appel/modern/java/JLex/Archive/1.2.6/Main.
 Source1:	%{name}-%{version}.build.xml
 Patch0:		%{name}-%{version}.static.patch
 URL:		http://www.cs.princeton.edu/~appel/modern/java/JLex/
-BuildRequires:	jakarta-ant >= 1.5
+BuildRequires:	ant >= 1.5
 Requires:	jre
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

@@ -11,17 +11,29 @@ Source1:	%{name}-%{version}.build.xml
 Patch0:		%{name}-%{version}.static.patch
 URL:		http://www.cs.princeton.edu/~appel/modern/java/JLex/
 BuildRequires:	ant >= 1.5
+BuildRequires:	jpackage-utils
+BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre
 BuildArch:	noarch
+ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664} noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_javalibdir	%{_datadir}/java
 
 %description
 JLex is a Lexical Analyzer Generator for Java.
 
 %description -l pl
 JLex to generator analizatorów leksykalnych dla Javy.
+
+%package javadoc
+Summary:	JLex API documentation
+Summary(pl):	Dokumentacja API JLex
+Group:		Documentation
+
+%description javadoc
+JLex API documentation.
+
+%description javadoc -l pl
+Dokumentacja API JLex.
 
 %prep
 %setup -c -T
@@ -30,18 +42,25 @@ cp %{SOURCE1} build.xml
 %patch0 -p0
 
 %build
+unset CLASSPATH || :
+export JAVA_HOME="%{java_home}"
 ant
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_javalibdir}
-cp dist/lib/%{name}.jar $RPM_BUILD_ROOT%{_javalibdir}
-ln -sf %{name}.jar $RPM_BUILD_ROOT%{_javalibdir}/%{name}-%{version}.jar
+install -d $RPM_BUILD_ROOT{%{_javadir},%{_javadocdir}/%{name}-%{version}}
+cp dist/lib/%{name}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
+ln -sf %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
+
+cp -R dist/docs/api/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc dist/docs
-%{_javalibdir}/*.jar
+%{_javadir}/*.jar
+
+%files javadoc
+%defattr(644,root,root,755)
+%doc %{_javadocdir}/%{name}-%{version}

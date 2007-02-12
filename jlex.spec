@@ -1,5 +1,5 @@
 Summary:	A Lexical Analyzer Generator for Java
-Summary(pl):	Generator analizatorów leksykalnych dla Javy
+Summary(pl.UTF-8):   Generator analizatorÃ³w leksykalnych dla Javy
 Name:		jlex
 Version:	1.2.6
 Release:	2
@@ -21,19 +21,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 JLex is a Lexical Analyzer Generator for Java.
 
-%description -l pl
-JLex to generator analizatorów leksykalnych dla Javy.
+%description -l pl.UTF-8
+JLex to generator analizatorÃ³w leksykalnych dla Javy.
 
 %package javadoc
 Summary:	JLex API documentation
-Summary(pl):	Dokumentacja API JLex
+Summary(pl.UTF-8):   Dokumentacja API JLex
 Group:		Documentation
 Requires:	jpackage-utils
 
 %description javadoc
 JLex API documentation.
 
-%description javadoc -l pl
+%description javadoc -l pl.UTF-8
 Dokumentacja API JLex.
 
 %prep

@@ -39,7 +39,7 @@ Dokumentacja API JLex.
 %setup -q -c -T
 cp %{SOURCE0} .
 cp %{SOURCE1} build.xml
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 unset CLASSPATH || :

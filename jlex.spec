@@ -4,7 +4,7 @@ Summary:	A Lexical Analyzer Generator for Java
 Summary(pl.UTF-8):	Generator analizatorów leksykalnych dla Javy
 Name:		jlex
 Version:	1.2.6
-Release:	4
+Release:	5
 License:	BSD-like
 Group:		Development/Languages/Java
 Source0:	http://www.cs.princeton.edu/~appel/modern/java/JLex/Archive/1.2.6/Main.java
